@@ -6,7 +6,6 @@ import javax.persistence.Id;
 /**
  * class for user type holds fields to represent specific user
  * @author Niran
- *
  */
 @Entity
 public class User {
@@ -79,7 +78,7 @@ public class User {
 	
 	/**
 	 * getter method for user last name
-	 * @return
+	 * @return last name
 	 */
 	public String getLastName() {
 		return lastName;
@@ -95,7 +94,7 @@ public class User {
 	
 	/**
 	 * getter method for user's username
-	 * @return
+	 * @return user name
 	 */
 	public String getUserName() {
 		return userName;
@@ -111,7 +110,7 @@ public class User {
 	
 	/**
 	 * getter method of user's password
-	 * @return
+	 * @return password
 	 */
 	public String getPassword() {
 		return password;
@@ -127,7 +126,7 @@ public class User {
 	
 	/**
 	 * getter method for user's city
-	 * @return
+	 * @return city
 	 */
 	public String getCity() {
 		return city;
