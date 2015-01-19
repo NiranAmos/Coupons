@@ -29,23 +29,4 @@ public class FavoritesList {
 			favoriteCoupons.add(id);
 		}
 	}
-	
-	/**
-	 * method prints list of favorite coupons
-	 */
-	public void printMyFavoriteCouponListPerUnregistredUser()
-	{
-		for (Integer favoriteCoupons : favoriteCoupons)
-		{
-			System.out.println(favoriteCoupons);
-		}
-	}
-	
-	/**
-	 * method to remove favorite coupon from list by id
-	 * @param id
-	 */
-	public void removeFavoriteCoupon(Coupon coupon) {
-		favoriteCoupons.remove(coupon);
-	}
 }

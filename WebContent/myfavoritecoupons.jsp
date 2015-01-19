@@ -13,7 +13,7 @@
 <head>
 <script src="https://code.jquery.com/jquery.js"></script>
 	<meta http-equiv="Content-Type" content="text/html; charset=windows-1255">
-	<title>Insert title here</title>
+	<title>My Favorite List</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
 </head>
 <body>
@@ -60,8 +60,6 @@ else{
 		if(myFavoritesList.getFavorites().contains(coupon.getId()))
 		{
 			out.println("Coupon ID : " + coupon.getId());
-			out.println("<form action ='removefromfavorites?couponIdToRemove=" + coupon.getId() + "' method='post'>");
-			out.println("<input type='submit' value='Remove from favorites'></form><br>");
 			out.println(coupon.toHtml() + "<br><br>");
 		}
 	}

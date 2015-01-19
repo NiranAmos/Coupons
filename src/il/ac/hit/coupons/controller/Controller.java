@@ -104,10 +104,6 @@ public class Controller extends HttpServlet {
 			int couponId = Integer.parseInt(request.getParameter("id"));
 			addToMyFavorites(request, response, couponId);
 		}
-		else if (path.endsWith("removefromfavorites"))
-		{
-			removeFromFavorites(request, response);
-		}
 		else if (path.endsWith("addnewcoupon"))
 		{
 			addOrUpdateCoupon(request, response, true);
@@ -148,35 +144,6 @@ public class Controller extends HttpServlet {
 			}
 			response.sendRedirect(request.getHeader("referer"));	
 		}
-	}
-
-	private void removeFromFavorites(HttpServletRequest request,
-			HttpServletResponse response) {
-		FavoritesList myFavoriteList = (FavoritesList) request.getSession().getAttribute("myFavoritesList");
-		int couponIdToRemove = Integer.parseInt(request.getParameter("couponIdToRemove"));
-		Coupon couponToRemove = null;
-		try {
-			couponToRemove = myDao.getCoupon(couponIdToRemove);
-		} catch (CouponException e1) {
-			request.getSession().setAttribute("errorMessage", e1.getMessage());
-			request.getSession().setAttribute("gotopage", "/myfavoritescoupons.jsp");
-		}
-		
-		System.out.println(couponToRemove);
-		if (myFavoriteList == null)
-		{
-			myFavoriteList = new FavoritesList();
-			request.getSession().setAttribute("RegularUser", true);
-		}
-
-		myFavoriteList.removeFavoriteCoupon(couponToRemove);
-		myFavoriteList.printMyFavoriteCouponListPerUnregistredUser();
-		request.getSession().setAttribute("myFavoritesList", myFavoriteList);
-			try {
-				response.sendRedirect(request.getHeader("referer"));
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 	}
 
 	/**
